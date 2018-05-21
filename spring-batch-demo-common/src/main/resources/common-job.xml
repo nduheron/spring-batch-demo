@@ -1,0 +1,23 @@
+<beans:beans xmlns="http://www.springframework.org/schema/batch"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/batch
+           http://www.springframework.org/schema/batch/spring-batch-3.0.xsd">
+
+	<!-- job abstrait permettant de logguer le temps d'éxécution d'un job -->
+	<job id="abstractLogJob" abstract="true">	
+		<listeners>
+			<listener ref="infoJobListener" />
+		</listeners>
+	</job>
+
+	<!-- job abstrait permettant de logguer l'exécution d'une step -->
+	<step id="abstractLogStep" abstract="true">
+		<listeners>
+			<listener ref="infoStepListener" />
+		</listeners>
+	</step>
+
+</beans:beans>
